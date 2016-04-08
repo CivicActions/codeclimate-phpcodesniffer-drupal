@@ -4,7 +4,7 @@ use Stringy\Stringy as S;
 
 class Runner
 {
-    const DEFAULT_EXTENSIONS = array("php", "inc", "module");
+    const DEFAULT_EXTENSIONS = array("php", "inc", "module", "install", "test", "profile", "theme", "js", "css", "info", "txt", "md");
 
     private $config;
     private $server;
@@ -79,14 +79,14 @@ class Runner
 
     public function run($files)
     {
-        $resultFile = tempnam(sys_get_temp_dir(), 'phpcodesniffer');
+        $resultFile = tempnam(sys_get_temp_dir(), 'phpcodesniffer-drupal');
 
         $extra_config_options = array('--report=json', '--report-file=' . $resultFile);
 
         if (isset($this->config['config']['standard'])) {
             $extra_config_options[] = '--standard=' . $this->config['config']['standard'];
         } else {
-            $extra_config_options[] = '--standard=PSR1,PSR2';
+            $extra_config_options[] = '--standard=Drupal';
         }
 
         if (isset($this->config['config']['ignore_warnings'])) {

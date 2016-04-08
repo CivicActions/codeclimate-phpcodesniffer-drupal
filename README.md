@@ -1,13 +1,13 @@
-# Code Climate PHP_CodeSniffer Engine
+# Code Climate PHP_CodeSniffer Engine for Drupal
 
-`codeclimate-phpcodesniffer` is a Code Climate engine that wraps the [PHP_Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer) static analysis tool. You can run it on your command line using the Code Climate CLI, or on our hosted analysis platform.
+`codeclimate-phpcodesniffer-drupal` is a Code Climate engine that wraps the [PHP_Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer) static analysis tool, configured for Drupal. You can run it on your command line using the Code Climate CLI, or on our hosted analysis platform.
 
 PHP_CodeSniffer helps you detect violations of a defined coding standard.
 
 ### Installation
 
 1. If you haven't already, [install the Code Climate CLI](https://github.com/codeclimate/codeclimate).
-2. Run `codeclimate engines:enable phpcodesniffer`. This command both installs the engine and enables it in your `.codeclimate.yml` file.
+2. Run `codeclimate engines:enable phpcodesniffer-drupal`. This command both installs the engine and enables it in your `.codeclimate.yml` file.
 3. You're ready to analyze! Browse into your project's folder and run `codeclimate analyze`.
 
 ###Config Options
@@ -24,16 +24,28 @@ Format the values for these config options per the [PHP_CodeSniffer documentatio
     exclude_paths:
      - "/examples/**/*"
     engines:
-      phpcodesniffer:
+      phpcodesniffer-drupal:
         enabled: true
         config:
-          file_extensions: "php,inc,lib"
-          standard: "PSR1,PSR2"
-          ignore_warnings: true
+          file_extensions: "php,module,inc,install,test,profile,theme,js,css,info,txt,md"
+          standard: "Drupal,DrupalPractice"
+          ignore_warnings: false
           encoding: utf-8
     ratings:
       paths:
       - "**.php"
+      - "**.module"
+      - "**.inc"
+      - "**.install"
+      - "**.test"
+      - "**.profile"
+      - "**.theme"
+      - "**.js"
+      - "**.css"
+      - "**.info"
+      - "**.txt"
+      - "**.md"
+
 
 ### Need help?
 

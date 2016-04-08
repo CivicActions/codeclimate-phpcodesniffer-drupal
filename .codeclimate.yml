@@ -1,11 +1,22 @@
 exclude_paths:
  - "/vendor/*"
 engines:
-  phpcodesniffer:
+  phpcodesniffer-drupal:
     enabled: true
     config:
-      file_extensions: "php"
-      standard: "PSR1,PSR2"
+      file_extensions: "php,module,inc,install,test,profile,theme,js,css,info,txt,md"
+      standard: "Drupal,DrupalPractice"
 ratings:
   paths:
   - "**.php"
+  - "**.module"
+  - "**.inc"
+  - "**.install"
+  - "**.test"
+  - "**.profile"
+  - "**.theme"
+  - "**.js"
+  - "**.css"
+  - "**.info"
+  - "**.txt"
+  - "**.md"
